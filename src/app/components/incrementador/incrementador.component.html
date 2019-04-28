@@ -1,0 +1,31 @@
+<h3>{{ leyenda }}</h3>
+
+<div class="input-group">
+  <div class="input-group-append" id="button-addon4">
+    <button
+      class="btn btn-outline-primary"
+      type="button"
+      (click)="cambiarValor(-5)"
+    >
+      <i class="mdi mdi-minus"></i>
+    </button>
+  </div>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Recipient's username"
+    aria-label="Recipient's username with two button addons"
+    aria-describedby="button-addon4"
+    name="progreso"
+    [(ngModel)]="progreso"
+  />
+  <div class="input-group-append" id="button-addon4">
+    <button
+      class="btn btn-outline-primary"
+      type="button"
+      (click)="cambiarValor(5)"
+    >
+      <i class="mdi mdi-plus"></i>
+    </button>
+  </div>
+</div>
