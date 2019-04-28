@@ -11,13 +11,17 @@
     </button>
   </div>
   <input
-    type="text"
+    #txtProgreso
+    type="number"
     class="form-control"
-    placeholder="Recipient's username"
-    aria-label="Recipient's username with two button addons"
+    placeholder="Progress"
+    aria-label="Progress"
     aria-describedby="button-addon4"
     name="progreso"
     [(ngModel)]="progreso"
+    (ngModelChange)="onChanges($event)"
+    min="1"
+    max="100"
   />
   <div class="input-group-append" id="button-addon4">
     <button
