@@ -9,10 +9,24 @@ import { retry } from 'rxjs/operators';
 })
 export class RxjsComponent implements OnInit {
   constructor() {
-    const obs = new Observable(observer => {
+    this.returnObservable()
+      .pipe(retry(2))
+      .subscribe(
+        numero => {
+          console.log('Subs', numero);
+        },
+        error => console.error('Error en el obs', error),
+        () => console.log('El observador termino!')
+      );
+  }
+
+  ngOnInit() {}
+
+  returnObservable(): Observable<number> {
+    return new Observable(observer => {
       let contador = 0;
       const intervalo = setInterval(() => {
-        contador ++;
+        contador++;
         observer.next(contador);
         if (contador === 3) {
           clearInterval(intervalo);
@@ -25,15 +39,5 @@ export class RxjsComponent implements OnInit {
         }
       }, 1000);
     });
-
-    obs.pipe(retry(2)).subscribe(
-      numero => {
-        console.log('Subs', numero);
-      },
-      error => console.error('Error en el obs', error),
-      () => console.log('El observador termino!')
-    );
   }
-
-  ngOnInit() {}
 }
