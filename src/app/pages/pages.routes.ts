@@ -13,7 +13,11 @@ const pageRoutes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        data: { titulo: 'Dashboard' }
+      },
       { path: 'progress', component: ProgressComponent },
       { path: 'graficas1', component: Graficas1Component },
       { path: 'account-settings', component: AccountSettingsComponent },
