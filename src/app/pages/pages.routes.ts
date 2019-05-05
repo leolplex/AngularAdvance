@@ -18,11 +18,27 @@ const pageRoutes: Routes = [
         component: DashboardComponent,
         data: { titulo: 'Dashboard' }
       },
-      { path: 'progress', component: ProgressComponent },
-      { path: 'graficas1', component: Graficas1Component },
-      { path: 'account-settings', component: AccountSettingsComponent },
-      { path: 'promesas', component: PromesasComponent },
-      { path: 'rxjs', component: RxjsComponent },
+      {
+        path: 'progress',
+        component: ProgressComponent,
+        data: { titulo: 'Progress' }
+      },
+      {
+        path: 'graficas1',
+        component: Graficas1Component,
+        data: { titulo: 'Gráficas' }
+      },
+      {
+        path: 'account-settings',
+        component: AccountSettingsComponent,
+        data: { titulo: 'Ajustes del tema' }
+      },
+      {
+        path: 'promesas',
+        component: PromesasComponent,
+        data: { titulo: 'Promesas' }
+      },
+      { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJS' } },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
     ]
   }
