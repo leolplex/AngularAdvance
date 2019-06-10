@@ -10,9 +10,31 @@ import { stringify } from '@angular/core/src/render3/util';
   providedIn: 'root'
 })
 export class UsuarioService {
+  usuario: Usuario;
+  token: string;
+
   constructor(public http: HttpClient) {
     console.log('Servicio de usuario listo');
   }
+
+  guardarStorage(id: string, token: string, usuario: Usuario) {
+    localStorage.setItem('id', id);
+    localStorage.setItem('token', token);
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+    this.usuario = usuario;
+    this.token = token;
+  }
+
+  loginGoogle(token: string) {
+    const url = URL_SERVICIOS + '/login/google';
+    return this.http.post(url, { token }).pipe(
+      map((resp: any) => {
+        this.guardarStorage(resp.id, resp.token, resp.usuario);
+        return true;
+      })
+    );
+  }
+
   login(usuario: Usuario, recordar: boolean = false) {
     if (recordar) {
       localStorage.setItem('correo', usuario.correo);
@@ -23,9 +45,7 @@ export class UsuarioService {
     const url = URL_SERVICIOS + '/login';
     return this.http.post(url, usuario).pipe(
       map((resp: any) => {
-        localStorage.setItem('id', resp.id);
-        localStorage.setItem('token', resp.token);
-        localStorage.setItem('usuario', JSON.stringify(resp.usuario));
+        this.guardarStorage(resp.id, resp.token, resp.usuario);
         return true;
       })
     );
