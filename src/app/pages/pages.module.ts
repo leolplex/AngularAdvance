@@ -17,11 +17,12 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 // Graficas
 import { ChartsModule } from 'ng2-charts';
 
-// Temporal
+
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficaDonaComponent } from '../components/grafica-dona/grafica-dona.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     GraficaDonaComponent,
     AccountSettingsComponent,
     PromesasComponent,
-    RxjsComponent
+    RxjsComponent,
+    ProfileComponent
   ],
   exports: [
     DashboardComponent,
