@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 // Modulos
 import { SharedModule } from '../shared/shared.module';
@@ -16,7 +17,6 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 
 // Graficas
 import { ChartsModule } from 'ng2-charts';
-
 
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficaDonaComponent } from '../components/grafica-dona/grafica-dona.component';
@@ -37,11 +37,14 @@ import { ProfileComponent } from './profile/profile.component';
     RxjsComponent,
     ProfileComponent
   ],
-  exports: [
-    DashboardComponent,
-    ProgressComponent,
-    Graficas1Component
-  ],
-  imports: [SharedModule, PAGES_ROUTES, FormsModule, ChartsModule, PipesModule]
+  exports: [DashboardComponent, ProgressComponent, Graficas1Component],
+  imports: [
+    CommonModule,
+    SharedModule,
+    PAGES_ROUTES,
+    FormsModule,
+    ChartsModule,
+    PipesModule
+  ]
 })
 export class PagesModule {}
