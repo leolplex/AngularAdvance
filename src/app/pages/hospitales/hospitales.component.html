@@ -31,7 +31,12 @@
     <div class="card">
       <div class="card-body">
         <div class="text-right">
-          <button type="button" class="btn btn-primary right" (click)="mostrarModalNuevoHospital()">
+          <button
+            type="button"
+            class="btn waves-effect waves-light btn-rounded btn-primary"
+            (click)="mostrarModalNuevoHospital()"
+          >
+          <i class="fa fa-plus"></i>
             Crear hospital
           </button>
         </div>
@@ -50,13 +55,17 @@
             <tr *ngFor="let hospital of hospitales">
               <td class="w70">
                 <img
-                  (click)="mostrarModal(hospital.nombre)"
-                  [src]="hospital.img | imagen"
+                  (click)="mostrarModal(hospital._id)"
+                  [src]="hospital.img | imagen: 'hospital'"
                   class="img-50 img-circle pointer"
                 />
               </td>
               <td>
-                <input class="form-control" type="text" [(ngModel)]="hospital.nombre" />
+                <input
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="hospital.nombre"
+                />
               </td>
               <td>
                 <button

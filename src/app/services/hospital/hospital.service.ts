@@ -7,6 +7,7 @@ import { URL_SERVICIOS } from '../../config/config';
 import { map } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { Usuario } from 'src/app/models/usuario.model';
+import { UsuarioService } from '../usuario/usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,19 +19,11 @@ export class HospitalService {
   constructor(
     public http: HttpClient,
     public router: Router,
-    public subirArchivoService: SubirArchivoService
+    public subirArchivoService: SubirArchivoService,
+    public usuarioService: UsuarioService
   ) {
-    this.cargarStorage();
-  }
-
-  cargarStorage() {
-    if (localStorage.getItem('token')) {
-      this.token = localStorage.getItem('token');
-      this.usuario = JSON.parse(localStorage.getItem('usuario'));
-    } else {
-      this.token = '';
-      this.usuario = null;
-    }
+    this.token = usuarioService.token;
+    this.usuario = usuarioService.usuario;
   }
 
   cargarHospitales() {

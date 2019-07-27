@@ -34,9 +34,19 @@ export class HospitalesComponent implements OnInit {
       this.cargando = false;
     });
   }
-  buscarHospitales(termino: string) {}
+  buscarHospitales(termino: string) {
+    if (termino.length <= 0) {
+      this.cargarHospitales();
+      return;
+    }
+    this.hospitalesService
+      .buscarHospital(termino)
+      .subscribe((hospitales: Hospital[]) => {
+        this.hospitales = hospitales ;
+      });
+  }
   mostrarModal(id: string) {
-    this.modalUploadService.mostrarModal('hospital', id);
+    this.modalUploadService.mostrarModal('hospitales', id);
   }
   crearHospital(nombre: string) {
     return this.hospitalesService.crearHospital(nombre);
