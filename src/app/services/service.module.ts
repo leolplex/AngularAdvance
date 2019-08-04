@@ -7,6 +7,7 @@ import {
   SidebarService,
   UsuarioService,
   LoginGuarg,
+  AdminGuard,
   SubirArchivoService,
   MedicoService,
   HospitalService
@@ -23,6 +24,7 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     SidebarService,
     UsuarioService,
     LoginGuarg,
+    AdminGuard,
     SubirArchivoService,
     ModalUploadService,
     HospitalService,
