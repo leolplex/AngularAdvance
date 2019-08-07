@@ -9,9 +9,7 @@ export class ModalUploadService {
   public oculto = 'oculto';
   public notification = new EventEmitter<any>();
 
-  constructor() {
-    console.log('Modal Upload Service listo!');
-  }
+  constructor() {}
 
   ocultarModal() {
     this.oculto = 'oculto';
