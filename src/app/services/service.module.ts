@@ -8,6 +8,7 @@ import {
   UsuarioService,
   LoginGuarg,
   AdminGuard,
+  VerificaTokenGuard,
   SubirArchivoService,
   MedicoService,
   HospitalService
@@ -25,6 +26,7 @@ import { ModalUploadService } from '../components/modal-upload/modal-upload.serv
     UsuarioService,
     LoginGuarg,
     AdminGuard,
+    VerificaTokenGuard,
     SubirArchivoService,
     ModalUploadService,
     HospitalService,
